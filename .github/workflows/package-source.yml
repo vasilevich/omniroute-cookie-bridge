@@ -1,0 +1,17 @@
+name: Package source
+on:
+  push:
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: omniroute-source
+          path: |
+            .
+            !.git
+            !.github
